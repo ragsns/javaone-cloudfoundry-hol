@@ -1,4 +1,4 @@
-#Cloud Foundry Hands-On Lab
+#Cloud Foundry Hands-On Lab for JavaOne 2015
 
 ##Prerequisites
 
