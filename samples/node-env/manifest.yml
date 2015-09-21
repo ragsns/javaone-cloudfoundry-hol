@@ -1,0 +1,7 @@
+applications:
+- name: node-env
+  mem: 32M
+  instances: 1
+  host: node-env-${random-word}
+  env:
+   MY-ENV: WORKSHOP-ENV-TEST

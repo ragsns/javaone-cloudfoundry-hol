@@ -1,0 +1,3 @@
+applications:
+- name: bottle-currency
+  mem: 32M
