@@ -74,12 +74,8 @@ It is recommended that you run through these exercises sequentially since they a
 - Exercise 6: [Health Monitoring] (ex6)
 - Exercise 7: [Draining logs] (ex7) 
 - Exercise 8: [Blue/Green Deploy] (ex8) [Advanced]
+- Exercise 9: [Polyglot Adventures] (ex9) [Advanced]
 
-##Recommended Exercises - Admin Related
-
-- Exercise 1: [Quotas] (exa1)
-- Exercise 2: [Security Groups] (exa2)
-- Exercise 3: [Adminstering Quotas] (exa3)
 
 ##More Resources
 
