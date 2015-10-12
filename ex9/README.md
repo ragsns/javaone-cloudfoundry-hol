@@ -42,7 +42,14 @@ This requires explicit specification of the external Heroku buildpack for Clojur
 ```
 
 
-Now the app is deployed. The output of the push command will show the specific URL to access it. Access it in your browser.
+5. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command. 
+
+```
+$ cf apps
+
+name                      requested state   instances   memory   disk   urls
+clojuresphere             started           1/1         1G       1G     clojuresphere.mybluemix.net
+```
 
    http://clojuresphere.mybluemix.net/
    
@@ -80,21 +87,11 @@ Steps:
 5. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command. 
 
 ```
-cf apps
+$ cf apps
+
+name                      requested state   instances   memory   disk   urls
+hello-scala               started           1/1         1G       1G     hello-scala.mybluemix.net
 ```
-
-Which should yield an output like below.
-
-```
-+-----------------+---+-----+---------+-----------------------------------------------+--------------------+
-| Application     | # | Mem | Health  | URLs                                          | Services           |
-+-----------------+---+-----+---------+-----------------------------------------------+--------------------+
-| pcfdemo         | 1 | 300 | RUNNING | http://pcfdemo-rags-old.15.126.133.139.xip.io | rabbitmq           |
-| pcfdemo-green   | 1 | 300 | RUNNING | http://pcfdemo-a64c4.15.126.133.139.xip.io    | rabbitmq           |
-+-----------------+---+-----+---------+-----------------------------------------------+--------------------+
-```
-
-
 
 6. Visit the hello-scala app in your browser
 
