@@ -72,7 +72,7 @@ The Cloud Foundry Eclipse Plugin allows you to manage several aspects of your Pa
 <img src="../images/explore1.png" alt="Applications and Services" style="width: 400px;"/>
 
 
-## What IntelliJ and NetBeans?
+## What about IntelliJ and NetBeans?
 
 IDE plugins for Cloud Foundry are relatively simple to implement as the Cloud Foundry API is well defined and straight-forward to use. As a result there's a [Cloud Foundry Plugin for IntelliJ IDEA](http://theblasfrompas.blogspot.com/2014/02/intellij-idea-version-13-now-includes.html), the awesome IDE from JetBrains.
 
