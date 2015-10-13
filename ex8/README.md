@@ -1,4 +1,4 @@
-#Cloud Foundry on OpenStack Hands-On Labs
+#Cloud Foundry Hands-On Labs
 
 ##Exercise 8: Blue Green Deployments
 
@@ -29,7 +29,7 @@ applications:
   memory: 300M 
   instances: 1
   services: [rabbitmq]
-  host: pcfdemo-a64c4
+  host: pcfdemo-${random-word}
   path: ./target/pcfdemo-green.war
   env:
    JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
@@ -37,8 +37,10 @@ applications:
 Pushing this will deploy the Green deployment with the following command
 
 ```
-cf push -n
+cf push
 ```
+
+Browse the app deployed at the URL as provided in the output of the command above.
 
 The Green Deployment has a changed Copyright from 2014 to 2014-2015 and clicking a state on the map will change it's color to Green (got it :-)?)
 
@@ -53,22 +55,20 @@ cf routes
 Which should yield an output like below.
 
 ```
-Routes: https://api.15.126.133.139.xip.io -> workshop -> workshop
-+----------------------------------------------+--------------------+-----------------+
-| Url                                          | Space              | Applications    |
-+----------------------------------------------+--------------------+-----------------+
-| http://pcfdemo-613d1.15.126.133.139.xip.io   | workshop::workshop | pcfdemo-green   |
-| http://pcfdemo-a64c4.15.126.133.139.xip.io   | workshop::workshop | pcfdemo         |
-+----------------------------------------------+--------------------+-----------------+
+Getting routes as raghsrin@us.ibm.com ...
+
+space   host                                             domain          apps         
+dev     pcfdemo-clustery-cicatrix                        mybluemix.net   pcfdemo         
+dev     pcfdemo-nonderisible-effort                      mybluemix.net   pcfdemo-green  
 ```
 
 We map the Blue application to another route (just in case) and we map the new application to the old (or current route as below.
 
 ```
-cf map pcfdemo pcfdemo-rags-old.15.126.133.139.xip.io'
-cf unmap pcfdemo pcfdemo-a64c4.15.126.133.139.xip.io
-cf map pcfdemo-green pcfdemo-a64c4.15.126.133.139.xip.io
-cf unmap pcfdemo-green pcfdemo-613d1.15.126.133.139.xip.io
+cf map-route pcfdemo mybluemix.net -n pcfdemo-clustery-ciatrix-old
+cf unmap-route pcfdemo mybluemix.net -n pcfdemo-clustery-cicatrix
+cf map-route pcfdemo-green mybluemix.net -n pcfdemo-clustery-cicatrix
+cf unmap-route pcfdemo-green mybluemix.net -n pcfdemo-nonderisible-effort
 
 ```
 
@@ -81,13 +81,13 @@ cf apps
 Which should yield an output like below.
 
 ```
-+-----------------+---+-----+---------+-----------------------------------------------+--------------------+
-| Application     | # | Mem | Health  | URLs                                          | Services           |
-+-----------------+---+-----+---------+-----------------------------------------------+--------------------+
-| pcfdemo         | 1 | 300 | RUNNING | http://pcfdemo-rags-old.15.126.133.139.xip.io | rabbitmq           |
-| pcfdemo-green   | 1 | 300 | RUNNING | http://pcfdemo-a64c4.15.126.133.139.xip.io    | rabbitmq           |
-+-----------------+---+-----+---------+-----------------------------------------------+--------------------+
+Getting apps in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
+OK
+
+name                          requested state   instances   memory   disk   urls   
+pcfdemo                       started           1/1         300M     1G     pcfdemo-clustery-ciatrix-old.mybluemix.net   
+pcfdemo-green                 started           1/1         300M     1G     pcfdemo-clustery-cicatrix.mybluemix.net      
 ```
 
-We just accomplished the Blue/Green deployment just like that.
+We accomplished the Blue/Green deployment just like that.
 

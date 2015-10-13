@@ -1,4 +1,4 @@
-#Cloud Foundry on OpenStack Hands-On Labs
+#Cloud Foundry Hands-On Labs
 
 ##Exercise 6: Health Monitoring
 
@@ -17,15 +17,15 @@ When you hit this button, the platform that is continually monitoring the health
 Note down the Instance details such as below.
 
 ```
-Instance hosted at  172.17.0.160:46406
+Instance hosted at  10.254.2.154:61162
 ```
 
-In the browser, hit the button "KILL APP" and continually refresh the page. At some point you should see a "Page Not Found" message which indicates the application is not running.
+In the browser, hit the button "KILL APP" and **immediately** and continually refresh the page. At some point you should see a "Page Not Found" message which indicates the application is not running.
 
-At some point the application will be restarted and this time the Instance details will be different.
+After a while (**it may take a few minutes**) the application will be restarted and this time the Instance details will be different.
 
 ```
-Instance hosted at  172.17.0.162:45087
+Instance hosted at  10.254.2.34:61134
 ```
 
 Just like that, with absolutely nothing required to be done by the application developer we see how health monitoring of the application is being done by the platform.

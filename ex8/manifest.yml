@@ -4,7 +4,7 @@ applications:
   memory: 300M
   instances: 1
   services: [rabbitmq]
-  host: pcfdemo-a64c4
+  host: pcfdemo-${random-word}
   path: ./target/pcfdemo-green.war
   env:
    JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
