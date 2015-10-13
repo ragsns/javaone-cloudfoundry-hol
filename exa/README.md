@@ -2,7 +2,7 @@
 
 ##Exercise 10: The Eclipse Cloud Foundry Plugin
 
-Modern Java IDEs can easily support Cloud Foundry with the installation of various Cloud Foundry plugins. These plugins communicate directly with the Cloud Foundry API, in much the same way that the command line, web console do. With an IDE plugin you can manage the entire deployment process from the comfort of your IDE.
+Modern Java IDEs can easily support Cloud Foundry with the installation of various Cloud Foundry plugins. These plugins communicate directly with the Cloud Foundry API, in much the same way that the command line and web console do. With an IDE Cloud Foundry plugin you can manage the entire deployment process from the comfort of your IDE.
 
 Here we'll show the steps to add Cloud Foundry support to Eclipse, create a simple servlet, and deploy it to the PaaS. This lab assumes you have previously installed Eclipse. If not, follow the steps [here](https://eclipse.org/downloads/). For this lab it's recommended you install the J2EE version of eclipse so you can rapidly create a servlet.
   
@@ -70,3 +70,17 @@ The Cloud Foundry Eclipse Plugin allows you to manage several aspects of your Pa
 
 
 <img src="../images/explore1.png" alt="Applications and Services" style="width: 400px;"/>
+
+
+## What IntelliJ and NetBeans?
+
+IDE plugins for Cloud Foundry are relatively simple to implement as the Cloud Foundry API is well defined and straight-forward to use. As a result there's a [Cloud Foundry Plugin for IntelliJ IDEA](http://theblasfrompas.blogspot.com/2014/02/intellij-idea-version-13-now-includes.html), the awesome IDE from JetBrains.
+
+
+There's also a maven Cloud Foundry plugin allowing you to push directly to the PaaS with a simple mvn command.
+
+If you use IntelliJ, NetBeans, and/or maven in your development process we invite you to try out these plugins.
+
+
+
+
