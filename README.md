@@ -10,49 +10,10 @@ Needless to say you'll need a laptop! Any OS is fine, but make sure to install t
 
 During a live HOL, we will help you with a sandbox environment (the details are below). If you are trying these exercises by yourself, we want to provide you choices for deployment. We've tested the exercises on multiple instances.
 
-- [https://run.pivotal.io/](https://run.pivotal.io/)
+
 - [https://console.ng.bluemix.net/] (https://console.ng.bluemix.net/)
 - [http://www.activestate.com/stackato/sandbox] (http://www.activestate.com/stackato/sandbox)
-
-##Cloud Foundry Instance
-
-You can target a Cloud Foundry instance either hosted on the cloud or on your laptop.
-
-### If using ActiveState's Stackato instances
-
-Create an alias for stackato as cf. You can create an alias for ```stackato``` as ```cf``` in which case the stackato CLI commands will be approximately similar to the `cf` CLI commands.
-
-The following command worked in my case.
-
-```
-alias cf='/Users/srinir16/Downloads/stackato-3.2.1-macosx10.5-i386-x86_64/stackato --skip-ssl-validation'
-```
-
-### If using non-Stackato instances
-
-Install the [cf CLI](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html).
-
-### Verify the CLI command
-
-Verify that you're using the right command with any of the following commands.
-
-```
-cf --version
-```
-
-OR
-
-```
-cf --help
-```
-
-You should see an output like below if using the Stackato CLI.
-
-`stackato 3.2.1 (3.2.1 @ 2015-04-10 14:28:15 -0700)`
-
-Otherwise, you should see an output like below with the CF CLI.
-
-`cf version 6.7.0-c38c991-2014-11-12T01:45:23+00:00`
+- [https://run.pivotal.io/](https://run.pivotal.io/)
 
 
 ##Samples and General Directions

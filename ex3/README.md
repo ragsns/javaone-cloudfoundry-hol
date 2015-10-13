@@ -1,4 +1,4 @@
-#Cloud Foundry on OpenStack Hands-On Labs
+#Cloud Foundry Hands-On Labs
 
 ##Exercise 3: manifest.yml and more CLI commands
 
@@ -26,18 +26,24 @@ The manifest.yml file is used for deployment if it's available and it's used to 
 Change the instances to 2, and push the application again with the following command.
 
 ```
-cf push -n --reset
+cf push
 ```
 You should see an output (partially reproduced) which shows the instances changed from 1 to 2.
 
 ```
-Setting Instances    : 2 (was 1)
+0 of 2 instances running, 2 starting
 ```
 
 Also, notice the differences by running the following command which should show 2 running instances.
 
 ```
 cf apps
+```
+
+Partial output is reproduced below.
+
+```
+pcfdemo                       started           2/2         300M     1G     pcfdemo-ineloquent-spookiness.mybluemix.net
 ```
 
 If necessary, try restaging the application with the following command
