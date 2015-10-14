@@ -1,13 +1,13 @@
-#Cloud Foundry on OpenStack Hands-On Labs
+#Cloud Foundry Hands-On Labs
 
 ##Exercise 7: Drain Logs
 
-Applications log to stdout in syslog format that can be redirected to a log provider. We will look at [papertrail] (https://papertrailapp.com/) for this.
+Applications log to stdout in syslog format that can be redirected to a log provider. We will look at [papertrail] (https://papertrailapp.com/) for this but the instructions work for most syslog providers.
 
-We will follow the instructions at [http://docs.cloudfoundry.org/devguide/services/log-management-thirdparty-svc.html#papertrail] (http://docs.cloudfoundry.org/devguide/services/log-management-thirdparty-svc.html#papertrail) as below substituting the appropriate value of the URL and the port.
+We will follow the instructions at [http://docs.cloudfoundry.org/devguide/services/log-management-thirdparty-svc.html#papertrail] (http://docs.cloudfoundry.org/devguide/services/log-management-thirdparty-svc.html#papertrail) as below substituting the appropriate value of the URL and the PORT-NUMBER.
 
 ```
-cf cups my-logs -l syslog://logs2.papertrailapp.com:33866
+cf cups my-logs -l syslog://logs2.papertrailapp.com:PORT-NUMBER
 ```
 
 Bind the service to the app with the following command.
@@ -16,10 +16,12 @@ Bind the service to the app with the following command.
 cf bind-service pcfdemo my-logs
 ```
 
-You can verify this on papertrail by restaging the app.
+As suggested restage the app.
 
 ```
 cf restage pcfdemo
 ```
 
-That's it to consolidate your logging.
+If you wander over to paper trail on your browser you should be able to see the logs. 
+
+That's really it to consolidating your logs.

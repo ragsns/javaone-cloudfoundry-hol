@@ -37,6 +37,7 @@ It is recommended that you run through these exercises sequentially since they a
 - Exercise 8: [Blue/Green Deploy] (ex8) [Advanced]
 - Exercise 9: [Polyglot Adventures] (ex9) [Advanced]
 - Exercise 10: [Using the Eclipse IDE Plugin](exa) [Advanced]
+- Exercise 11: [Jenkins Integration](exb) [Advanced]
 
 
 ##More Resources

@@ -1,4 +1,4 @@
-#Cloud Foundry on OpenStack Hands-On Labs
+#Cloud Foundry Hands-On Labs
 
 ##Exercise 10: The Eclipse Cloud Foundry Plugin
 
