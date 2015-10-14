@@ -8,10 +8,10 @@ b. Install Maven and Jenkins locally on you laptop. Once Jenkins is installed yo
 
 c. Install the Cloud Foundry plugin by clicking on `Manage Jenkins` in the Console.
 
-d. Create a new workspace called PCF-demo in Jenkins and Configure the project. Substitute the appropriate values for `GitHub project`.
+d. Create a new workspace called PCF-demo in Jenkins and Configure the project. Substitute the appropriate values for the GitHub URL below.
 
 1. Pick `Git` for Source Code Management.
-2. Provide the repository URL (in this case it is `https://github.com/ragsns/PCF-demo/`)
+2. Provide the repository URL (in my case it is `https://github.com/ragsns/PCF-demo/`. Provide the URL of the forked repository)
 3. Check off when a `Build when a change is pushed to GitHub`
 4. Check off `Poll SCM` and provide the value `H/2 * * * *` in the `Schedule` which indicates poll the repository every 2 mins.
 5. In `Build/Execute shell/Command` provide the command to build the project which is `mvn clean package`
@@ -21,7 +21,7 @@ d. Create a new workspace called PCF-demo in Jenkins and Configure the project. 
 
 You can also create services if you want but we will skip that for now.
 
-Change the manifest.yml (**strong make sure you substitute the host to something uniqe**) to
+Change the manifest.yml (**make sure you substitute the host to something unique**) to
 
 ```
 ---
@@ -34,7 +34,9 @@ applications:
   env:
    JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
 ```
-Pushing this will trigger a Jenkins build. If not do a `Build Now` in the Jenkins UI. If the build fails, rinse and repeat!
+Stage this file and push it via the `git` command.
+
+Pushing this will trigger a Jenkins build. If not do a `Build Now` manually in the Jenkins UI. If the build fails, rinse and repeat!
 
 That's all there is to Jenkins integration!
 
