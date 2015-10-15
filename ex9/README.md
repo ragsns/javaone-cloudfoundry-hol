@@ -1,6 +1,6 @@
 #Cloud Foundry Hands-On Labs
 
-##Exercise B: Jenkins Integration
+##Exercise 9: Jenkins Integration
 
 a. Fork the repository [https://github.com/ragsns/PCF-demo] (https://github.com/ragsns/PCF-demo) on github.
 
