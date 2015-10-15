@@ -1,100 +1,42 @@
 #Cloud Foundry Hands-On Labs
 
-##Exercise 9: Polyglot Adventures
+##Exercise B: Jenkins Integration
 
-One of the many benefits of Cloud Foundry is its ability to provision applications built with multiple language and frameworks. Cloud Foundry is equally at home with apps built in Java, Python, PHP, Ruby, Node.js, and custom buildpacks can be used to deploy applications built with almost any languages known to mankind including FORTAN, COBOL, and [Haskall](http://catdevrandom.me/blog/2013/05/16/buildpacks-in-cloud-foundry-v2/), and [Erlang](https://github.com/spiegela/cf-buildpack-erlang).
+a. Fork the repository [https://github.com/ragsns/PCF-demo] (https://github.com/ragsns/PCF-demo) on github.
 
-Since this is JavaOne, we'll stick with JVM-based languages, but this still gives us a nice palette of powerful languages to choose from including Java, Scala, Clojure, Jython, JRuby, Grails.
+b. Install Maven and Jenkins locally on you laptop. Once Jenkins is installed you can access the console at [http://localhost:8080] (http://localhost:8080) 
 
-Here we'll provision a handful of apps using a selection of these languages. Feel free to use the samples provided, or you're more than welcome to bring your own. The steps are the same.
+c. Install the Cloud Foundry plugin by clicking on `Manage Jenkins` in the Console.
 
-### Clojure
+d. Create a new workspace called PCF-demo in Jenkins and Configure the project. Substitute the appropriate values for the GitHub URL below.
 
-Clojure is basically a modern JVM-based LISP, extremely powerful and expressive. Here we'll deploy the simple Clojure web application ClojureSphere.
+1. Pick `Git` for Source Code Management.
+2. Provide the repository URL (in my case it is `https://github.com/ragsns/PCF-demo/`. Provide the URL of the forked repository)
+3. Check off when a `Build when a change is pushed to GitHub`
+4. Check off `Poll SCM` and provide the value `H/2 * * * *` in the `Schedule` which indicates poll the repository every 2 mins.
+5. In `Build/Execute shell/Command` provide the command to build the project which is `mvn clean package`
+6. In the `Post-build Actions/Push to Cloud Foundry` provide the credentials, organization and space and test it.
+7. Check the `Reset app if already exists`.
+8. Save the project
 
-Note that Clojure isn't recognized by the default Java buildpack, so you need to specify an external buildpack to get it to run. Conveniently the heroku folks provide [Clojure buildpack](git://github.com/heroku/heroku-buildpack-clojure.git) that works perfectly.
+You can also create services if you want but we will skip that for now.
 
-
-Steps:
-
-1. You'll need the "lein" clojure build tool to package the app. This is trivial to install, following [these steps](http://leiningen.org/#install)
-
-2. Clone the ClojureSphere application
-
-```
-   git clone https://github.com/Stackato-Apps/clojuresphere'
-```
-
-
-3. Build the application using lein
-
-  ``` 
-     $ cd clojuresphere
-     $ lein deps
-  ```
-  
-4. Deploy this application to Cloud Foundry
-
-This requires explicit specification of the external Heroku buildpack for Clojure.
+Change the manifest.yml (**make sure you substitute the host to something unique**) to
 
 ```
-   $ cf push clojuresphere  -b git://github.com/heroku/heroku-buildpack-clojure.git
+---
+applications:
+- name: pcfdemo
+  memory: 300M 
+  instances: 1
+  host: pcfdemo-rags
+  path: ./target/pcfdemo.war
+  env:
+   JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
 ```
+Stage this file and push it via the `git` command.
 
+Pushing this will trigger a Jenkins build. If not do a `Build Now` manually in the Jenkins UI. If the build fails, rinse and repeat!
 
-5. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command. 
-
-```
-$ cf apps
-
-name                      requested state   instances   memory   disk   urls
-clojuresphere             started           1/1         1G       1G     clojuresphere.mybluemix.net
-```
-
-   http://clojuresphere.mybluemix.net/
-   
-
-### Scala
-
-Scala, or SCAlable LAnguage, is a powerful extensible JVM based language that's getting lots of traction. Twitter famously adopted Scala as a core language, and other important companies have followed suit.
-
-
-We'll install a simple Hello World app built with Scale.
-
-Steps:
-
-1. Install sbt (I think it stands for Simple Build Tool) by following [these steps](http://www.scala-sbt.org/0.13/tutorial/Manual-Installation.html).
-
-2. Clone the hello-scala application
-
-```
-   git clone https://github.com/Stackato-Apps/hello-scala.git
-```
-
-3. Build the application
-
-```
-   cd hello-scala
-   sbt clean compile stage
-```
-
-4. Deploy this application to Cloud Foundry
-
-```
-   cf push
-```
-
-5. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command. 
-
-```
-$ cf apps
-
-name                      requested state   instances   memory   disk   urls
-hello-scala               started           1/1         1G       1G     hello-scala.mybluemix.net
-```
-
-6. Visit the hello-scala app in your browser
-
-   http://hello-scala.mybluemix.net/
-
+That's all there is to Jenkins integration!
 

@@ -35,9 +35,10 @@ It is recommended that you run through these exercises sequentially since they a
 - Exercise 6: [Health Monitoring] (ex6)
 - Exercise 7: [Draining logs] (ex7) 
 - Exercise 8: [Blue/Green Deploy] (ex8) [Advanced]
-- Exercise 9: [Polyglot Adventures] (ex9) [Advanced]
-- Exercise 10: [Using the Eclipse IDE Plugin](exa) [Advanced]
-- Exercise 11: [Jenkins Integration](exb) [Advanced]
+- Exercise 9: [Using the Eclipse IDE Plugin](ex9) [Advanced]
+- Exercise 10: [Jenkins Integration](exa) [Advanced]
+- Exercise 11: [Cloud Foundry Interoperability](exb) [Advanced]
+- Exercise 12: [Polyglot Adventures] (exc) [Advanced]
 
 
 ##More Resources
