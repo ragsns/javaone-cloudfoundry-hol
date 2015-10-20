@@ -4,15 +4,21 @@
 
 Make sure you've
 
-**Prerequisite 1**: Registered for a Bluemix account that is still current (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
+**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
 
 **Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli>.
 
-Target the Bluemix Cloud Foundry instance by substituting the URL with the one provided and use the following command.
+Target the Bluemix Cloud Foundry instance by substituting the URL with the one provided and use the following command. 
 
 ```
-cf api https://api.ng.bluemix.net
+cf api https://api.ng.bluemix.net # to Americas
 ```
+**OR**
+
+```
+cf api https://api.eu-gb.bluemix.net # to Europe
+```
+
 
 The output for the `cf` CLI should look something like below.
 
@@ -22,18 +28,16 @@ OK
 
                    
 API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev   
+Not logged in. Use 'cf login' to log in.  
 ```
 
-Login to the instance.
+Login to the instance as directed.
 
 ```
 cf login
 ```
 
-Substitute the non-expired Bluemix account that was created earlier as below.
+Substitute the **non-expired** Bluemix account that was created earlier as below.
 
 ```
 API endpoint: https://api.ng.bluemix.net
@@ -106,7 +110,7 @@ Org:            raghsrin@us.ibm.com
 Space:          dev  
 ```
 
-List the services that are available with the following command (**NOTE: This might take upto a minute or more **)
+List the services that are available with the following command (**NOTE: This might take upto a minute or more**)
 
 ```
 cf marketplace
