@@ -2,6 +2,13 @@
 
 ##Exercise 3: manifest.yml and more CLI commands
 
+Ensure that you are in sub-directory ex3.
+
+```
+cd <path-to-folder>/javaone-cloudfoundry-hol/ex3
+```
+
+
 Notice the manifest.yml in this directory. Its contents looks something like below.
 
 ```
@@ -21,17 +28,17 @@ The manifest.yml file is used for deployment if it's available and it's used to 
 - name of the application
 - memory
 - number of instances and so on.
-- the path of the artifacts to be deployed, in this case it is target/pcfdemo.war
+- the path of the artifacts to be deployed, in this case it is `target/pcfdemo.war`
 
 Change the instances to 2, and push the application again with the following command.
 
 ```
 cf push
 ```
-You should see an output (partially reproduced) which shows the instances changed from 1 to 2.
+You should see an output (partially reproduced) which shows the instances running as 2.
 
 ```
-0 of 2 instances running, 2 starting
+2 of 2 instances running
 ```
 
 Also, notice the differences by running the following command which should show 2 running instances.

@@ -2,6 +2,12 @@
 
 ##Exercise 4: Connect to a service
 
+Ensure that you are in sub-directory ex4.
+
+```
+cd <path-to-folder>/javaone-cloudfoundry-hol/ex4
+```
+
 Services are not part of the Cloud Foundry Elastic Runtime but they are an essential part of application deployment, like connecting to a MySQL database, a NoSQL database like MongoDB or Redis and so on.
 
 In principle, they comprise of the following steps.
@@ -146,7 +152,7 @@ visual_recognition             free                                             
 TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
 ```
 
-We pick a RabbitMQ service to connect with the application as below. It is strongly recommended that you provide an unique name for the service.
+We pick a RabbitMQ service to connect with the application as below.
 
 ```
 cf create-service rabbitmq 100 rabbitmq
@@ -163,7 +169,7 @@ If you run the command
 ```
 cf services
 ```
-You should see an output that looks something like below. The column Application that is blank indicates that no application is bound to it (yet).
+You should see an output that looks something like below. The column "bound apps" that is blank indicates that no application is bound to it (yet).
 
 ```
 Getting services in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...

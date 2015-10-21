@@ -2,6 +2,12 @@
 
 ##Exercise 8: Blue Green Deployments
 
+Ensure that you are in sub-directory ex8.
+
+```
+cd <path-to-folder>/javaone-cloudfoundry-hol/ex8
+```
+
 [Blue/Green deployments](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/blue-green.html) are intended to minimize downtime during application upgrades and enable rollback if necessary. The steps are illustrated in the following diagrams.
 
 ![step 1] (http://docs.pivotal.io/pivotalcf/devguide/images/blue-green/blue.png)
@@ -49,7 +55,7 @@ Once you're happy with the Green deployment, we will switchover from the origina
 Run the following command
 
 ```
-cf routes
+cf routes --orglevel
 ```
 
 Which should yield an output like below.
@@ -57,18 +63,36 @@ Which should yield an output like below.
 ```
 Getting routes as raghsrin@us.ibm.com ...
 
-space   host                                             domain          apps         
-dev     pcfdemo-clustery-cicatrix                        mybluemix.net   pcfdemo         
-dev     pcfdemo-nonderisible-effort                      mybluemix.net   pcfdemo-green  
+space   host                                             domain          apps   
+dev     pcfdemo-chariotlike-infinitive                   mybluemix.net   pcfdemo   
+dev     pcfdemo-noncontemptible-horripilation            mybluemix.net   pcfdemo-green  
 ```
 
-We map the Blue application to another route (just in case) and we map the new application to the old (or current route as below.
+The first route is for the Blue version of application. The Second route is for the Green version of the application.
+
+We map the Blue version of the application to another route (just in case) and we map the new application to the old (or current route of the Blue version of the application as below.
+
+Map the route of the Blue version to a backup route, just in case.
 
 ```
-cf map-route pcfdemo mybluemix.net -n pcfdemo-clustery-ciatrix-old
-cf unmap-route pcfdemo mybluemix.net -n pcfdemo-clustery-cicatrix
-cf map-route pcfdemo-green mybluemix.net -n pcfdemo-clustery-cicatrix
-cf unmap-route pcfdemo-green mybluemix.net -n pcfdemo-nonderisible-effort
+cf map-route pcfdemo mybluemix.net -n pcfdemo-chariotlike-infinitive-backup
+```
+
+Unmap the route of the Blue version.
+
+```
+cf unmap-route pcfdemo mybluemix.net -n pcfdemo-chariotlike-infinitive
+```
+
+Map the Green version to the original Blue route. Ignore the "already exists" message.
+
+```
+cf map-route pcfdemo-green mybluemix.net -n pcfdemo-chariotlike-infinitive
+```
+Unmap the Green version of the route since it's no longer needed.
+
+```
+cf unmap-route pcfdemo-green mybluemix.net -n pcfdemo-noncontemptible-horripilation
 
 ```
 
@@ -81,13 +105,13 @@ cf apps
 Which should yield an output like below.
 
 ```
-Getting apps in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
+Getting routes as raghsrin@us.ibm.com ...
 
-name                          requested state   instances   memory   disk   urls   
-pcfdemo                       started           1/1         300M     1G     pcfdemo-clustery-ciatrix-old.mybluemix.net   
-pcfdemo-green                 started           1/1         300M     1G     pcfdemo-clustery-cicatrix.mybluemix.net      
+space   host                                             domain          apps   
+dev     pcfdemo-chariotlike-infinitive                   mybluemix.net   pcfdemo-green   
+dev     pcfdemo-noncontemptible-horripilation            mybluemix.net      
+dev     pcfdemo-chariotlike-infinitive-backup            mybluemix.net   pcfdemo         
 ```
+Notice that the original route for the Blue version of the application is now pointing to the Green version of the application.
 
 We accomplished the Blue/Green deployment just like that.
-

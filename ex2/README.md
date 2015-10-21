@@ -2,11 +2,15 @@
 
 ##Exercise 2: Push your application
 
+Ensure that you are in sub-directory ex2.
+
+```
+cd <path-to-folder>/javaone-cloudfoundry-hol/ex2
+```
+
 We will use the Pivotal Cloud Foundry field engineering [demo.](https://github.com/Pivotal-Field-Engineering/PCF-demo) that is also [locally available](../samples/PCF-demo). For your convenience, symbolic links are provided. However, you can use the [samples directory](../samples/PCF-demo) to do the same.
 
-Push the application with the following command. The `-n` options picks the defaults. You can try without the `-n` option and pick the defaults otherwise.
-
-It is recommended to provide your own unique name for the application in the file.
+Push the application with the following command.
 
 ```
 cf push
@@ -95,7 +99,7 @@ pcfdemo                       started           1/1         300M     1G     pcfd
 
 If you browse the URL from the output above you should be able to see a heat map that is not yet active since we've not connected a service. You will also notice a message "No RabbitMQ service bound - streaming is not active" indicating that the RabbitMQ service is not hooked up the application, yet.
 
-You can get the application logs with the following command. We will sibsequently connect to a log provider such as papertrail or splunk.
+You can get the application logs with the following command. We will subsequently connect to a log provider such as papertrail or splunk.
 
 ```
 cf logs pcfdemo
@@ -118,9 +122,3 @@ No apps found
 ```
 
 We will look at the manifest file and connect to a service, subsequently.
-
-
-
-
-
-

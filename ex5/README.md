@@ -58,4 +58,3 @@ cf scale -i=1 pcfdemo
 Can you try to scale up and down the application instead of scaling it out (hint: you have to manipulate the memory size)?
 
 Next we'll stop this application. We notice that the platform which is monitoring the health of the application automatically restarts it.
-
