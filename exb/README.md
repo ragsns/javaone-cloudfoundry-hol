@@ -1,6 +1,6 @@
 #Cloud Foundry Hands-On Labs
 
-##Exercise 11: Cloud Foundry Interoperability
+##Exercise 11: Cloud Foundry Application Interoperability
 
 By definition, PaaS is an abstraction above the infrastructure layer. Which means, if you write an application to run on a PaaS, it will run on any infrastructure that the PaaS runs on, with no modification to the application itself.
 
@@ -19,16 +19,16 @@ We created an instance of HDP on OpenStack, in HP's public cloud. You will be pr
 
 Here are the steps:
 
-1. First, to use the Helion Developer Platform Cloud Foundry instance you'll need to use the "helion" command line client. This is the counterpart to the "cf" client you used earlier, but has enhancements to support HDP.
+1. First, to use the Helion Developer Platform Cloud Foundry instance you'll need to use the "helion" command line client. This is the counterpart to the "cf" client you used earlier, but has enhancements to support HDP. You can download the helion client at [http://docs.hpcloud.com/#devplatform/1.2/1.2devplatform.ALS-developer-trial-quick-start2.html](http://docs.hpcloud.com/#devplatform/1.2/1.2devplatform.ALS-developer-trial-quick-start2.html).
 
-2. Now you login and target the HDP PaaS:
+2. Now you login and target the HDP PaaS. This is the same procedure as you followed before, the only difference being you're using the "helion" client instead of the "cf" client.
 
 ``` 
-  $ cf target api.15.125.76.166.xip.io
-  $ cf login
+  $ helion target api.15.125.76.166.xip.io
+  $ helion login
   # enter the username/password as provided to you
   $ cd javaone-cloudfoundry-hol/samples/PCF-demo
-  $ cf push
+  $ helion push
 ```
 
 While you're working with the HDP, we recommend you have a look at the powerful web console that's provided. From here you can manage almost all aspects of application development including provisioning, versioning, scaling, and securing your apps.
@@ -37,8 +37,6 @@ To access the console from your browser simple visit
 api.15.125.76.166.xip.io and login using the credentials we provided.
 
 <img src="../images/dashboards.png" alt="New Server" style="width: 400px;"/>
-
-
 
 ## Pivotal Web Services
  
@@ -65,8 +63,22 @@ Here are the steps to target the Pivotal Cloud Foundry and push the PCF-demo app
   $ cd javaone-cloudfoundry-hol/samples/PCF-demo
   $ cf push
 ```
- 
- That's all there is to it.
+
+
+At this point you can type ```cf apps``` to determine the URL for this application, and visit it in your browser.
+
+As before, you can create and bind the rabbitMQ service to this instance so that the streaming works as expected. Follow these steps:
+
+```
+  cf create-service rabbitmq 100 cloudamqp
+  cf bind-service pcfdemo cloudamqp
+  cf restage pcfdemo
+```
+
+This will restart your application with the RabbitMQ service bound. The data streaming button will now function correctly.
+
+
+That's all there is to it.
 
  
   

@@ -8,7 +8,7 @@ Needless to say you'll need a laptop! Any OS is fine, but make sure to install t
 - [The `cf` CLI] (https://github.com/cloudfoundry/cli#downloads) - download the latest version that is appropriate for your laptop and follow the instructions in README.txt. OR the [the `cf` CLI] (http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html)
 - A Cloud Foundry instance, either [running on your laptop](https://github.com/cloudfoundry/bosh-lite) (16GB of laptop RAM recommended) or a hosted instance
 
-During a live HOL we will help you with a sandbox environment (the details are below). If you are trying these exercises by yourself, we want to provide you choices for deployment. We've tested the exercises on multiple instances.
+During a live HOL t we will help you with a sandbox environment (the details are below). If you are trying these exercises by yourself, we want to provide you choices for deployment. We've tested the exercises on multiple instances.
 
 
 - [https://console.ng.bluemix.net/] (https://console.ng.bluemix.net/)
@@ -37,7 +37,7 @@ It is recommended that you run through these exercises sequentially since they a
 - Exercise 8: [Blue/Green Deploy] (ex8) [Advanced]
 - Exercise 9: [Jenkins Integration](ex9) [Advanced]
 - Exercise 10: [Using the Eclipse IDE Plugin](exa) [Advanced]
-- Exercise 11: [Cloud Foundry Interoperability](exb) [Advanced]
+- Exercise 11: [Cloud Foundry Application Interoperability](exb) [Advanced]
 - Exercise 12: [Polyglot Adventures] (exc) [Advanced]
 
 
