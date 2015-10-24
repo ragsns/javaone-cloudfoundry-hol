@@ -79,8 +79,3 @@ This will restart your application with the RabbitMQ service bound. The data str
 
 
 That's all there is to it.
-
- 
-  
-  
-

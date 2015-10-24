@@ -12,7 +12,7 @@ cf scale pcfdemo -i=1
 
 If you go back to the application URL, you will notice a button "KILL APP" which is used to exit the application.
 
-When you hit this button, the platform that is continually monitoring the health of the application will bring it back to a desired state, when the actual state does not match the desired state.
+When you hit this button, the application is terminated. However, the platform that is continually monitoring the health of the application will bring it back to a desired state as soon as it notices that the actual state does not match the desired state.
 
 Note down the Instance details such as below.
 
@@ -28,6 +28,6 @@ After a while (**it may take a few minutes**) the application will be restarted 
 Instance hosted at  10.254.2.34:61134
 ```
 
-Just like that, with absolutely nothing required to be done by the application developer we see how health monitoring of the application is being done by the platform.
+Just like that, with absolutely nothing required to be done by the application developer we see how health monitoring and restart of the application is being handled by the platform.
 
-Next, we will look at how to drain logs. Next we look at Blue/Green deployments.
+Next, we will look at how to drain logs. Then we look at Blue/Green deployments.

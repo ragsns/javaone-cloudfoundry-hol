@@ -97,7 +97,7 @@ name                          requested state   instances   memory   disk   urls
 pcfdemo                       started           1/1         300M     1G     pcfdemo-premarital-prolongment.mybluemix.net
 ```
 
-If you browse the URL from the output above you should be able to see a heat map that is not yet active since we've not connected a service. You will also notice a message "No RabbitMQ service bound - streaming is not active" indicating that the RabbitMQ service is not hooked up the application, yet.
+If you browse the URL from the output above you should be able to see a heat map that is not yet active since we've not connected a service. You will also notice a message "*No RabbitMQ service bound - streaming is not active*" indicating that the RabbitMQ service is not hooked up the application, yet.
 
 You can get the application logs with the following command. We will subsequently connect to a log provider such as papertrail or splunk.
 
@@ -121,4 +121,4 @@ cf apps
 No apps found
 ```
 
-We will look at the manifest file and connect to a service, subsequently.
+We will look at the manifest file and how to connect to a service, subsequently.

@@ -6,7 +6,7 @@ a. Fork the repository [https://github.com/ragsns/PCF-demo] (https://github.com/
 
 b. Install Maven and Jenkins locally on you laptop. Once Jenkins is installed you can access the console at [http://localhost:8080] (http://localhost:8080) 
 
-c. Install the Cloud Foundry plugin by clicking on `Manage Jenkins` in the Console.
+c. Install the Cloud Foundry plugin by clicking on `Manage Jenkins` in the console and by clicking on the appropriate tabs and searching for the plugin.
 
 d. Create a new workspace called PCF-demo in Jenkins and Configure the project. Substitute the appropriate values for the GitHub URL below.
 
@@ -21,7 +21,7 @@ d. Create a new workspace called PCF-demo in Jenkins and Configure the project. 
 
 You can also create services if you want but we will skip that for now.
 
-Change the manifest.yml (**make sure you substitute the host to something unique**) to
+Change the manifest.yml (**make sure you substitute the UNIQUE below to something unique such as your name**) to
 
 ```
 ---
@@ -29,7 +29,7 @@ applications:
 - name: pcfdemo
   memory: 300M 
   instances: 1
-  host: pcfdemo-rags
+  host: pcfdemo-UNIQUE
   path: ./target/pcfdemo.war
   env:
    JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
@@ -39,4 +39,3 @@ Stage this file and push it via the `git` command.
 Pushing this will trigger a Jenkins build. If not do a `Build Now` manually in the Jenkins UI. If the build fails, rinse and repeat!
 
 That's all there is to Jenkins integration!
-

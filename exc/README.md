@@ -4,9 +4,9 @@
 
 One of the many benefits of Cloud Foundry is its ability to provision applications built with multiple language and frameworks. Cloud Foundry is equally at home with apps built in Java, Python, PHP, Ruby, Node.js, and custom buildpacks can be used to deploy applications built with almost any languages known to mankind including [FORTAN](https://github.com/martinrehfeld/heroku-buildpack-f77), [COBOL](https://github.com/ayumin/heroku-buildpack-cobol), and [Haskell](http://catdevrandom.me/blog/2013/05/16/buildpacks-in-cloud-foundry-v2/), and [Erlang](https://github.com/spiegela/cf-buildpack-erlang).
 
-Since this is JavaOne, we'll start with JVM-based languages, but this still gives us a nice palette of powerful languages to choose from including Java, Scala, Clojure, Jython, JRuby, Grails.
+If you're at JavaOne, you can start with JVM-based languages, but this still exploit a nice palette of powerful languages from including Java, Scala, Clojure, Jython, JRuby, Grails.
 
-Here we'll provision a handful of apps using a selection of these languages. Feel free to use the samples provided, or you're more than welcome to bring your own. The steps are the same.
+Here we'll provision a handful of apps using a selection of these languages. Feel free to use the samples provided, or you're more than welcome to bring your own. The steps are pretty much the same.
 
 ### Clojure
 
@@ -17,41 +17,42 @@ Note that Clojure isn't recognized by the default Java buildpack, so you need to
 
 Steps:
 
-1. You'll need the "lein" clojure build tool to package the app. This is trivial to install, following [these steps](http://leiningen.org/#install)
+a. You'll need the "lein" clojure build tool to package the app. This is trivial to install, following [these steps](http://leiningen.org/#install)
 
-2. Clone the ClojureSphere application
+b. Clone the ClojureSphere application
 
 ```
    git clone https://github.com/Stackato-Apps/clojuresphere
 ```
 
 
-3. Build the application using lein
+c. Build the application using lein
 
   ``` 
-     $ cd clojuresphere
-     $ lein deps
+     cd clojuresphere
+     cf login -a https://api.ng.bluemix.net
+     lein deps
   ```
   
-4. Deploy this application to Cloud Foundry
+d. Deploy this application to Cloud Foundry
 
 This requires explicit specification of the external Heroku buildpack for Clojure.
 
 ```
-   $ cf push clojuresphere  -b git://github.com/heroku/heroku-buildpack-clojure.git
+   cf push clojuresphere  -b git://github.com/heroku/heroku-buildpack-clojure.git
 ```
 
 
-5. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command. 
+e. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command.
 
 ```
-$ cf apps
+cf apps
 
 name                      requested state   instances   memory   disk   urls
 clojuresphere             started           1/1         1G       1G     clojuresphere.mybluemix.net
 ```
 
-   http://clojuresphere.mybluemix.net/
+f. Visit the route of the application deployed via the browser.
    
 
 ### Scala
@@ -62,41 +63,38 @@ To build a Scala application it's recommended to use the "Activator" build tool 
 
 Steps:
 
-1. Visit the [TypeSafe Activator](https://www.typesafe.com/activator/download) site and click the Download button to download the bits for Activator.
+a. Visit the [TypeSafe Activator](https://www.typesafe.com/activator/download) site and click the Download button to download the bits for Activator.
 
-2. Unzip the downloaded file, then double-click the "activator" executable contained in this archive. This will launch the Activator IDE in your browser.
+b. Unzip the downloaded file, then double-click the "activator" executable contained in this archive. This will launch the Activator IDE in your browser.
 
-3. Under Tutorials, select an application to build. Here we'll choose the "Reactive Stocks" app.  Click the "Create App" button.
+c. Under Tutorials, select an application to build. Here we'll choose the "Reactive Stocks" app.  Click the "Create App" button.
 
 <img src="../images/activator-createapp.png" width="400">
 
-4. After the application builds, you'll need to locate the app source folder, which defaults to ~/reactive-stocks.  To verify this location, click "Code" on the left, then click the elipses beside Browse Code and choose "Reveal in system".
+d. After the application builds, you'll need to locate the app source folder, which defaults to ~/reactive-stocks.  To verify this location, click "Code" on the left, then click the elipses beside Browse Code and choose "Reveal in system".
 
 <img src="../images/activator-reveal.png" width="400">
 
 
-5. In a shell, navigate to this directory, and push the application to Cloud Foundry as before. Note that you need to specify the Scala buildpack from Heroku.
+e. In a shell, navigate to this directory, and push the application to Cloud Foundry as before. Note that you need to specify the Scala buildpack from Heroku.
 
 ```
-   $ cd ~/reactive-stocks
-   $ cf login -a https://api.ng.bluemix.net
-   $ cf push
+   cd reactive-stocks
+   cf login -a https://api.ng.bluemix.net
+   cf push
 ```
 
-5. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command. 
+f. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command. 
 
 ```
-$ cf apps
+cf apps
 
 name                      requested state   instances   memory   disk   urls
 
 reactive-stocks           started           1/1         1G       1G     reactive-stocks.mybluemix.net
 ```
 
-6. Visit the hello-scala app in your browser
-
-   http://reactive-stocks.mybluemix.net
-
+g. Visit the route of the application deployed via the browser.
 
 
 ## Other languages
@@ -107,47 +105,39 @@ As mentioned above, Cloud Foundry supports a host of languages. Here are instruc
 ### Node.js
 
 ```
-  $ git clone https://github.com/Stackato-Apps/node-chat.git
-  $ cd node-chat
-  $ cf push
-``
-
-### Node.js
-
+  git clone https://github.com/Stackato-Apps/node-chat.git
+  cd node-chat
+  cf push
 ```
-  $ git clone https://github.com/Stackato-Apps/node-chat.git
-  $ cd node-chat
-  $ cf push
-``
 
 ###  PHP  (Wordpress)
 
 ```
-  $ git clone https://github.com/Stackato-Apps/wordpress.git
-  $ cd wordpress
-  $ cf push
+  git clone https://github.com/Stackato-Apps/wordpress.git
+  cd wordpress
+  cf push
 ```
 
 ### Python
 
 ```
-  $ git clone https://github.com/Stackato-Apps/bottle-currency.git
-  $ cd bottle-currency
-  $ cf push
+  git clone https://github.com/Stackato-Apps/bottle-currency.git
+  cd bottle-currency
+  cf push
 ```
 
 ### Ruby (Sinatra)
 
 ```
-  $ git clone https://github.com/Stackato-Apps/sinatra-rabbitmq.git
-  $ cd sinatra-rabbitmq
-  $ cf push
+  git clone https://github.com/Stackato-Apps/sinatra-rabbitmq.git
+  cd sinatra-rabbitmq
+  cf push
 ```
 
 ### Java
 
 ```
-  $ git clone https://github.com/Stackato-Apps/hello-java.git
-  $ cd hello-java
-  $ cf push
+  git clone https://github.com/Stackato-Apps/hello-java.git
+  cd hello-java
+  cf push
 ```

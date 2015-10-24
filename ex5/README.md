@@ -2,7 +2,7 @@
 
 ##Exercise 5: Scale the Application
 
-Scaling an application is relatively straightforward. However, it's really upto the application to exploit scaling out by effectively using the multiple instances. A Queueing application for instance can scale out by adding more workers.
+Scaling an application is relatively straightforward. However, it's really upto the application to exploit *scale out* by effectively using the multiple instances. A Queueing application for instance can *scale out* by adding more workers.
 
 First, let's scale down the application to 1 instance (if there are multiple instances) by using the following command.
 
@@ -10,7 +10,7 @@ First, let's scale down the application to 1 instance (if there are multiple ins
 cf scale -i=1 pcfdemo
 ```
 
-Let's scale the application out to 2 instances by using the following command.
+Let's *scale out* the application to 2 instances by using the following command.
 
 ```
 cf scale -i=2 pcfdemo

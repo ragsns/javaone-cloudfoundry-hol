@@ -160,6 +160,7 @@ cf create-service rabbitmq 100 rabbitmq
 
 You should see a response like below.
 
+```
 Creating service instance rabbitmq in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
 OK
 ```
@@ -203,9 +204,9 @@ cf restage pcfdemo
 ```
 
 
-If you browse to the URL based on the output above, you should see a message "Data being streamed from RabbitMQ," indicating that the rabbitmq service was bound to the application. You can rerun the `cf services` command to verify this.
+If you browse to the URL based on the output above, you should see a message "*Data being streamed from RabbitMQ*" indicating that the rabbitmq service was bound to the application. You can rerun the `cf services` command to verify this.
 
-If you click on any state you will notice that data is indeed being streamed via RabbitMQ.
+If you click on any state in the browser you will notice that data is indeed being streamed via RabbitMQ.
 
 Can you try to unbind the service from the application with an appropriate CLI command (hint: `unbind-service`)?
 
@@ -226,16 +227,3 @@ cf env pcfdemo
 This will output the connection credentials to the service via variables in the environment that the application uses to determine if connected to the RabbitMQ service and how to connect to it.
 
 Now that we've connected to the service, we will scale it.
-
-
-
-
-
-
-
-
-
-
-
-
-
