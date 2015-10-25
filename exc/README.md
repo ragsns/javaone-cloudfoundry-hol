@@ -105,39 +105,40 @@ As mentioned above, Cloud Foundry supports a host of languages. Here are instruc
 ### Node.js
 
 ```
-  git clone https://github.com/Stackato-Apps/node-chat.git
+  git clone https://github.com/bcferrycoder/node-chat.git
   cd node-chat
   cf push
 ```
 
-###  PHP  (Wordpress)
+###  PHP
 
 ```
-  git clone https://github.com/Stackato-Apps/wordpress.git
-  cd wordpress
+  git clone https://github.com/bcferrycoder/phpinfo.git
+  cd phpinfo
   cf push
 ```
 
 ### Python
 
 ```
-  git clone https://github.com/Stackato-Apps/bottle-currency.git
+  git clone https://github.com/bcferrycoder/bottle-currency
   cd bottle-currency
-  cf push
-```
-
-### Ruby (Sinatra)
-
-```
-  git clone https://github.com/Stackato-Apps/sinatra-rabbitmq.git
-  cd sinatra-rabbitmq
   cf push
 ```
 
 ### Java
 
 ```
-  git clone https://github.com/Stackato-Apps/hello-java.git
+  git clone https://github.com/bcferrycoder/hello-java.git
   cd hello-java
+  mvn package
+  cf push
+```
+
+### Ruby (Sinatra)
+
+```
+  git clone https://github.com/Stackato-Apps/sinatra-env.git
+  cd sinatra-env
   cf push
 ```
