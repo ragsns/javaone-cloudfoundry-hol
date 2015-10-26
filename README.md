@@ -27,18 +27,18 @@ We've also provided a choice of samples. The **instructions will refer to the PC
 
 It is recommended that you run through these exercises sequentially since they are progressive with some dependencies. Each exercise should take about 5-10 mins. to complete.
 
-- Exercise 1: [Target the Cloud Foundry Instance](ex1)
-- Exercise 2: [Push your application] (ex2)
-- Exercise 3: [manifest.yml and more CLI commands] (ex3)
-- Exercise 4: [Connect to a service] (ex4)
-- Exercise 5: [Scale your application] (ex5)
-- Exercise 6: [Health Monitoring] (ex6)
-- Exercise 7: [Draining logs] (ex7) 
-- Exercise 8: [Blue/Green Deploy] (ex8) [Advanced]
-- Exercise 9: [Jenkins Integration](ex9) [Advanced]
-- Exercise 10: [Using the Eclipse IDE Plugin](exa) [Advanced]
-- Exercise 11: [Cloud Foundry Application Interoperability](exb) [Advanced]
-- Exercise 12: [Polyglot Adventures] (exc) [Advanced]
+- Exercise 1: [Target the Cloud Foundry Instance](exercises/ex1)
+- Exercise 2: [Push your application] (exercises/ex2)
+- Exercise 3: [manifest.yml and more CLI commands] (exercises/ex3)
+- Exercise 4: [Connect to a service] (exercises/ex4)
+- Exercise 5: [Scale your application] (exercises/ex5)
+- Exercise 6: [Health Monitoring] (exercises/ex6)
+- Exercise 7: [Draining logs] (exercises/ex7) 
+- Exercise 8: [Blue/Green Deploy] (exercises/ex8) [Advanced]
+- Exercise 9: [Jenkins Integration](exercises/ex9) [Advanced]
+- Exercise 10: [Using the Eclipse IDE Plugin](exercises/exa) [Advanced]
+- Exercise 11: [Cloud Foundry Application Interoperability](exercises/exb) [Advanced]
+- Exercise 12: [Polyglot Adventures] (exercises/exc) [Advanced]
 
 
 ##More Resources
