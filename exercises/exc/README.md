@@ -30,7 +30,6 @@ c. Build the application using lein
 
   ``` 
      cd clojuresphere
-     cf login -a https://api.ng.bluemix.net
      lein deps
   ```
   
@@ -39,7 +38,7 @@ d. Deploy this application to Cloud Foundry
 This requires explicit specification of the external Heroku buildpack for Clojure.
 
 ```
-   cf push clojuresphere  -b git://github.com/heroku/heroku-buildpack-clojure.git
+   cf push clojuresphere  -b git://github.com/heroku/heroku-buildpack-clojure.git --random-route
 ```
 
 
@@ -49,7 +48,7 @@ e. Now the app is deployed. The output of the push command will show the specifi
 cf apps
 
 name                      requested state   instances   memory   disk   urls
-clojuresphere             started           1/1         1G       1G     clojuresphere.mybluemix.net
+clojuresphere             started           1/1         1G       1G     clojuresphere-uninterrupting-unstiffness.mybluemix.net
 ```
 
 f. Visit the route of the application deployed via the browser.
@@ -81,7 +80,7 @@ e. In a shell, navigate to this directory, and push the application to Cloud Fou
 ```
    cd reactive-stocks
    cf login -a https://api.ng.bluemix.net
-   cf push
+   cf push --random-route
 ```
 
 f. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command. 
@@ -107,7 +106,7 @@ As mentioned above, Cloud Foundry supports a host of languages. Here are instruc
 ```
   git clone https://github.com/bcferrycoder/node-chat.git
   cd node-chat
-  cf push
+  cf push --random-route
 ```
 
 ###  PHP
@@ -115,7 +114,7 @@ As mentioned above, Cloud Foundry supports a host of languages. Here are instruc
 ```
   git clone https://github.com/bcferrycoder/phpinfo.git
   cd phpinfo
-  cf push
+  cf push --random-route
 ```
 
 ### Python
@@ -123,7 +122,7 @@ As mentioned above, Cloud Foundry supports a host of languages. Here are instruc
 ```
   git clone https://github.com/bcferrycoder/bottle-currency
   cd bottle-currency
-  cf push
+  cf push --random-route
 ```
 
 ### Java
@@ -132,7 +131,7 @@ As mentioned above, Cloud Foundry supports a host of languages. Here are instruc
   git clone https://github.com/bcferrycoder/hello-java.git
   cd hello-java
   mvn package
-  cf push
+  cf push --random-route
 ```
 
 ### Ruby (Sinatra)
@@ -140,7 +139,7 @@ As mentioned above, Cloud Foundry supports a host of languages. Here are instruc
 ```
   git clone https://github.com/Stackato-Apps/sinatra-env.git
   cd sinatra-env
-  cf push
+  cf push --random-route
 ```
 
 ### Swift
