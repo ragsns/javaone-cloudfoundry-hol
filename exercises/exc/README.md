@@ -142,3 +142,11 @@ As mentioned above, Cloud Foundry supports a host of languages. Here are instruc
   cd sinatra-env
   cf push
 ```
+
+### Swift
+
+```
+  git clone https://github.com/kylef/Curassow-example-helloworld
+  cd Curassow-example-helloworld
+  cf push swift-helloworld -b https://github.com/cloudfoundry-community/swift-buildpack --random-route
+```
