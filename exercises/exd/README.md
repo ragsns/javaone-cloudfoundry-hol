@@ -42,6 +42,22 @@ applications:
    - myrabbit
 ```
 
+Ensure that the service `myrabbit` and is still available and not bound to any other app. by running the following command.
+
+```
+cf services
+```
+Which should yield an output like below.
+
+```
+Getting services in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
+OK
+
+name                        service                                                    plan                            bound apps                      last operation   
+   
+myrabbit                    rabbitmq                                                   100                                                             create succeeded
+``` 
+
 You can deploy these apps independently. For example
 
 ```
@@ -49,7 +65,9 @@ cf push pcfdemo-map
 cf push pcfdemo-producer
 ```
 
-Or you can deploy both these apps. with a single push command, just like before
+You can deploy the service and bind it manually to the respective application(s) as well.
+
+Or you can just deploy both these apps. with a single push command, like before
 
 ```
 cf push
