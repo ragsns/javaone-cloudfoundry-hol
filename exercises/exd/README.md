@@ -22,10 +22,10 @@ cf restage pcfdemo
 ```
 Open the console at [http://console.ng.bluemix.net/] (http://console.ng.bluemix.net/) click on Dashboard tab, Services and `newrelic` and open the New Relic Dashboard as below.
 
-<img src="../../images/ToNewRelicDashboard.tiff" width="400">
+<img src="../../images/ToNewRelicDashboard.tiff">
 
 Clicking on the link in the console and the application should bring you to the New Relic Dashboard as shown below.
 
-<img src="../../images/NewRelicGraphs.tiff" width="400">
+<img src="../../images/NewRelicGraphs.tiff">
 
 You can check the stats around. That's all there is to it!
