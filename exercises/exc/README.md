@@ -57,7 +57,7 @@ Let's test out rapid deployment.
 
 If everything has been setup, correctly you should be able to get a message that the project was synchronized.
 
-<img src="../../images/JRebelSynchronized.tiff">
+<img src="../../images/JRebelSynchronized.png"  width="400">
 
 Refreshing the browser, you should be able to see that the "tip: click on a state for details" has been changed to "hint: click on a state for details".
 
