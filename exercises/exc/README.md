@@ -1,151 +1,63 @@
 #Cloud Foundry Hands-On Labs
 
-##Exercise 12: Polyglot Adventures
+##Exercise 12: Rapid Deployment with JRebel
 
-One of the many benefits of Cloud Foundry is its ability to provision applications built with multiple language and frameworks. Cloud Foundry is equally at home with apps built in Java, Python, PHP, Ruby, Node.js, and custom buildpacks can be used to deploy applications built with almost any languages known to mankind including [FORTAN](https://github.com/martinrehfeld/heroku-buildpack-f77), [COBOL](https://github.com/ayumin/heroku-buildpack-cobol), and [Haskell](http://catdevrandom.me/blog/2013/05/16/buildpacks-in-cloud-foundry-v2/), and [Erlang](https://github.com/spiegela/cf-buildpack-erlang).
+Ensure that you are in sub-directory `exc`.
 
-If you're at JavaOne, you can start with JVM-based languages, but this still exploit a nice palette of powerful languages from including Java, Scala, Clojure, Jython, JRuby, Grails.
+As you've probably been wondering, although Cloud Foundry significantly eases deployment in general, it's still time consuming and tedious. Is it possible to speed up the deployment process?
 
-Here we'll provision a handful of apps using a selection of these languages. Feel free to use the samples provided, or you're more than welcome to bring your own. The steps are pretty much the same.
+[JRebel] (https://zeroturnaround.com/software/jrebel/) uses the [JVM HotSwap] (http://zeroturnaround.com/blog/reloading_java_classes_401_hotswap_jrebel/) to load classes without dynamic class loaders. In other words, there is no need to push the app to test every change, small or sizeable. It's great for rapid deployment.
 
-### Clojure
+We will generally follow the steps at [http://manuals.zeroturnaround.com/jrebel/remoting/bluemix.html](http://manuals.zeroturnaround.com/jrebel/remoting/bluemix.html).
 
-Clojure is basically a modern JVM-based LISP, extremely powerful and expressive. Here we'll deploy the simple Clojure web application [ClojureSphere](https://github.com/Stackato-Apps/clojuresphere).
+Installing JRebel for Eclipse.
 
-Note that Clojure isn't recognized by the default Java buildpack, so you need to specify an external buildpack to get it to run. Conveniently the heroku folks provide [Clojure buildpack](git://github.com/heroku/heroku-buildpack-clojure.git) that works perfectly.
+* Install the the [JRebel plugin] (https://zeroturnaround.com/software/jrebel/quickstart/eclipse/) for Eclipse.
+* Configure the project for [JRebel support] (http://manuals.zeroturnaround.com/jrebel/remoteserver/eclipse.html#eclipseremoteserver).  **Provide the URL of the running app on Bluemix (for example http://\<app-route\>.ng.mybluemix.net. No Authentication is required. Follow Steps 1 and 2. We will do Step 3 in a bit**.
 
+Setup the app. as an Eclipse project.
 
-Steps:
+* Open Eclipse and under File/Import.../Maven/Existing Maven Projects and click Next>
+* In the Maven Projects dialog browse to the directory and the subdirectory `samples/exc/PCF-demo` 
 
-a. You'll need the "lein" clojure build tool to package the app. This is trivial to install, following [these steps](http://leiningen.org/#install)
+This should setup the project as a Maven project in Eclipse with remote server support. If it's not enabled do it explicitly as below.
 
-b. Clone the ClojureSphere application
+Enable remote server support.
 
-```
-   git clone https://github.com/Stackato-Apps/clojuresphere
-```
+* Right Click on the project and JRebel/Enable JRebel Nature.
+* Right Click on the project and JRebel/Enable remote server support.
 
-
-c. Build the application using lein
-
-  ``` 
-     cd clojuresphere
-     lein deps
-  ```
-  
-d. Deploy this application to Cloud Foundry
-
-This requires explicit specification of the external Heroku buildpack for Clojure.
+Ensure the JRebel files are part of the project as below.
 
 ```
-   cf push clojuresphere  -b git://github.com/heroku/heroku-buildpack-clojure.git --random-route
+find . -name \*rebel\*.xml
 ```
 
-
-e. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command.
-
-```
-cf apps
-
-name                      requested state   instances   memory   disk   urls
-clojuresphere             started           1/1         1G       1G     clojuresphere-uninterrupting-unstiffness.mybluemix.net
-```
-
-f. Visit the route of the application deployed via the browser.
-   
-
-### Scala
-
-Scala, or SCAlable LAnguage, is a powerful statically-typed extensible JVM based language that's kind of a hybrid Object Oriented and Functional language. It's getting lots of traction: Twitter famously adopted Scala as a core language, and other important companies have followed suit.
-
-To build a Scala application it's recommended to use the "Activator" build tool from Typesafe. Here's we'll install Activator, build a simple app, and deploy it to the PaaS.
-
-Steps:
-
-a. Visit the [TypeSafe Activator](https://www.typesafe.com/activator/download) site and click the Download button to download the bits for Activator.
-
-b. Unzip the downloaded file, then double-click the "activator" executable contained in this archive. This will launch the Activator IDE in your browser.
-
-c. Under Tutorials, select an application to build. Here we'll choose the "Reactive Stocks" app.  Click the "Create App" button.
-
-<img src="../images/activator-createapp.png" width="400">
-
-d. After the application builds, you'll need to locate the app source folder, which defaults to ~/reactive-stocks.  To verify this location, click "Code" on the left, then click the elipses beside Browse Code and choose "Reveal in system".
-
-<img src="../images/activator-reveal.png" width="400">
-
-
-e. In a shell, navigate to this directory, and push the application to Cloud Foundry as before. Note that you need to specify the Scala buildpack from Heroku.
+The output should be something like below.
 
 ```
-   cd reactive-stocks
-   cf login -a https://api.ng.bluemix.net
-   cf push --random-route
+./src/main/resources/rebel-remote.xml
+./src/main/resources/rebel.xml
+./target/classes/rebel-remote.xml
+./target/classes/rebel.xml
+./target/pcfdemo/WEB-INF/classes/rebel-remote.xml
+./target/pcfdemo/WEB-INF/classes/rebel.xml
 ```
 
-f. Now the app is deployed. The output of the push command will show the specific URL to access it, or you can determine this with the "cf apps" command. 
+Push the application with remote server support enabled.
 
-```
-cf apps
-
-name                      requested state   instances   memory   disk   urls
-
-reactive-stocks           started           1/1         1G       1G     reactive-stocks.mybluemix.net
-```
-
-g. Visit the route of the application deployed via the browser.
+* Right Click on the project and Run as/Maven Build with package as a target (You can do this from the command line as well). In essence you're building a JAR file that you will push next.
+* Right Click on the project and Run as/Run on Server which should deploy the application remotely.
 
 
-## Other languages
+Let's test out rapid deployment.
 
-As mentioned above, Cloud Foundry supports a host of languages. Here are instructions to quickly deploy a handful of apps built using PHP, Ruby, Node.js, Python, and Java.
+* Let's make a small change in the file pcfdemo.jsp. Change tip to hint.
+* Click on the project in Eclipse/JRebel and Synchronize.
+
+If everything has been setup, correctly you should be able to get a message that the project was synchronized.
 
 
-### Node.js
+Refreshing the browser, you should be able to see that the "tip: click on a state for details" has been changed to "hint: click on a state for details".
 
-```
-  git clone https://github.com/bcferrycoder/node-chat.git
-  cd node-chat
-  cf push --random-route
-```
-
-###  PHP
-
-```
-  git clone https://github.com/bcferrycoder/phpinfo.git
-  cd phpinfo
-  cf push --random-route
-```
-
-### Python
-
-```
-  git clone https://github.com/bcferrycoder/bottle-currency
-  cd bottle-currency
-  cf push --random-route
-```
-
-### Java
-
-```
-  git clone https://github.com/bcferrycoder/hello-java.git
-  cd hello-java
-  mvn package
-  cf push --random-route
-```
-
-### Ruby (Sinatra)
-
-```
-  git clone https://github.com/Stackato-Apps/sinatra-env.git
-  cd sinatra-env
-  cf push --random-route
-```
-
-### Swift
-
-```
-  git clone https://github.com/kylef/Curassow-example-helloworld
-  cd Curassow-example-helloworld
-  cf push swift-helloworld -b https://github.com/cloudfoundry-community/swift-buildpack --random-route
-```
+You can try other changes, both trivial and non-trivial.

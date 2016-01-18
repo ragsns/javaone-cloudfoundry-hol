@@ -2,7 +2,7 @@
 
 ##Exercise 4: Connect to a service
 
-Ensure that you are in sub-directory ex4.
+Ensure that you are in sub-directory `ex4`.
 
 ```
 cd <path-to-folder>/javaone-cloudfoundry-hol/ex4

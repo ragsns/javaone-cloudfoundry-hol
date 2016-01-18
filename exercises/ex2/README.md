@@ -2,7 +2,7 @@
 
 ##Exercise 2: Push your application
 
-Ensure that you are in sub-directory ex2.
+Ensure that you are in sub-directory `ex2`.
 
 ```
 cd <path-to-folder>/javaone-cloudfoundry-hol/ex2

@@ -2,7 +2,7 @@
 
 ##Exercise 3: manifest.yml and more CLI commands
 
-Ensure that you are in sub-directory ex3.
+Ensure that you are in sub-directory `ex3`.
 
 ```
 cd <path-to-folder>/javaone-cloudfoundry-hol/ex3

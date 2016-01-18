@@ -2,7 +2,7 @@
 
 ##Exercise 8: Blue Green Deployments
 
-Ensure that you are in sub-directory ex8.
+Ensure that you are in sub-directory `ex8`.
 
 ```
 cd into <path-to-folder>/javaone-cloudfoundry-hol/ex8 
