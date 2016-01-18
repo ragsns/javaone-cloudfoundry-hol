@@ -44,7 +44,7 @@ It is recommended that you run through these exercises sequentially since they a
 - Exercise 9: [Jenkins Integration](exercises/ex9) [Advanced]
 - Exercise 10: [Using the Eclipse IDE Plugin](exercises/exa) [Advanced]
 - Exercise 11: [Cloud Foundry Application Interoperability](exercises/exb) [Advanced]
-- Exercise 12: [Rapid Deployment with JRebel] (exercise/exc) [Advanced]
+- Exercise 12: [Rapid Deployment with JRebel] (exercises/exc) [Advanced]
 - Exercise 13: [Monitoring with New Relic] (exercises/exd) [Advanced]
 - Exercise 20: [Polyglot Adventures] (exercises/exl) [Advanced]
 - Exercise 30: [Microservices Adventures] (exercises/exm) [Advanced]

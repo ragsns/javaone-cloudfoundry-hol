@@ -1,8 +1,8 @@
 #Cloud Foundry Hands-On Labs
 
-##Exercise D: Microservices Adventures
+##Exercise 30: Microservices Adventures
 
-Ensure that you are in sub-directory `exd`.
+Ensure that you are in sub-directory `exm`.
 
 ```
 cd <path-to-folder>/javaone-cloudfoundry-hol/exd
