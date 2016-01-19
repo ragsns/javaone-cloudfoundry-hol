@@ -1,7 +1,7 @@
 ---
 applications:
 - name: pcfdemo-green
-  memory: 300M
+  memory: 512M
   instances: 1
   services: [rabbitmq]
   host: pcfdemo-${random-word}

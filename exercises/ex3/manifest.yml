@@ -1,7 +1,7 @@
 ---
 applications:
 - name: pcfdemo
-  memory: 300M
+  memory: 512M
   instances: 1
   services: []
   host: pcfdemo-${random-word}
