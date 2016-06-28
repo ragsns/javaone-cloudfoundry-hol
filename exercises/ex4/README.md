@@ -18,7 +18,7 @@ In principle, they comprise of the following steps.
 
 We started the application previously without connecting to a service. We will now connect to a service.
 
-First, let's explore the marketplace with the following command.
+First, let's explore the marketplace with the following command. (**NOTE: This might take upto a minute or more**)
 
 ```
 cf marketplace
