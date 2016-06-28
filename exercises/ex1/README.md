@@ -110,23 +110,6 @@ Org:            raghsrin@us.ibm.com
 Space:          dev  
 ```
 
-List the services that are available with the following command (**NOTE: This might take upto a minute or more**)
-
-```
-cf marketplace
-```
-
-You should see an output that lists the different services and the plans that are available via IBM Bluemix. Partial output is below.
-
-```
-Getting services from marketplace in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-
-service                        plans                                                                                                                                                                          description   
-API Management                 Standard v2*                                                                                                                                                                   Publish, manage, and consume APIs.   
-AdvancedMobileAccess           Gold*, Bronze*
-```
-
 List the apps by issuing the following command.
 
 ```
