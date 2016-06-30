@@ -204,7 +204,9 @@ cf restage pcfdemo
 ```
 
 
-If you browse to the URL based on the output above, you should see a message "*Data being streamed from RabbitMQ*" indicating that the rabbitmq service was bound to the application. You can rerun the `cf services` command to verify this.
+If you browse to the URL based on the output above, you should see a message "*Data being streamed from RabbitMQ*" indicating that the rabbitmq service was bound to the application. You can rerun the `cf services` command to verify this and you will notice that the `rabbitmq` service is bound to the `pcfdemo` app.
+
+Click on the `START DATA STREAM` to start the Data stream. The Data is now being published on the Message Queue.
 
 If you click on any state in the browser you will notice that data is indeed being streamed via RabbitMQ.
 
@@ -224,6 +226,45 @@ Run the following command after connecting to a service.
 cf env pcfdemo
 ```
 
-This will output the connection credentials to the service via variables in the environment that the application uses to determine if connected to the RabbitMQ service and how to connect to it.
+This will output the connection credentials to the service via variables in the environment that the application uses to determine if connected to the RabbitMQ service and how to connect to it. Partial output is below. Notice the entries under `VCAP_SERVICES`.
+
+```
+Getting env variables for app pcfdemo in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
+OK
+
+System-Provided:
+{
+ "VCAP_SERVICES": {
+  "rabbitmq-2.8": [
+   {
+    "credentials": {
+     "admin_port": 26813,
+     "host": "host",
+     "hostname": "host",
+     "name": "8353feeb-481b-46d5-be86-79866bcb7181",
+     "pass": "pass",
+     "password": "pass",
+     "port": 16813,
+     "uri": "amqp://user:pass@host/v6eb6cc44444842a1868957dd723e663c",
+     "url": "amqp://user:pass@host:16813/v6eb6cc44444842a1868957dd723e663c",
+     "user": "user",
+     "username": "user",
+     "vhost": "v6eb6cc44444842a1868957dd723e663c"
+    },
+    "label": "rabbitmq-2.8",
+    "name": "rabbitmq",
+    "plan": "100",
+    "tags": [
+     "message-queue",
+     "amqp",
+     "web_and_app",
+     "ibm_experimental"
+    ]
+   }
+  ]
+ }
+}
+
+```
 
 Now that we've connected to the service, we will scale it.
