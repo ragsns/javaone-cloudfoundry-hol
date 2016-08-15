@@ -10,6 +10,8 @@ Make sure you've met the following prerequisites.
 
 **Prerequisite 3**: Installed the Hands-On Labs **locally**. You can either `git clone` [ttps://github.com/ragsns/javaone-cloudfoundry-hol] (ttps://github.com/ragsns/javaone-cloudfoundry-hol) or download a zip from the repository.
 
+**Prerequisite 4 (suggested but not necessary if the prerequisites 1-3 are already met)**: Install VirtualBox from [http://www.download1.co/ic/virtualbox/] (http://www.download1.co/ic/virtualbox/).
+
 ### Ensure that you are in the right sub-directory
 
 Ensure that you are in sub-directory ex1.
