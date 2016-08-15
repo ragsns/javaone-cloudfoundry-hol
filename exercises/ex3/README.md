@@ -5,7 +5,7 @@
 Ensure that you are in sub-directory `ex3`.
 
 ```
-cd <path-to-folder>/javaone-cloudfoundry-hol/ex3
+cd <path-to-folder>/javaone-cloudfoundry-hol/exercises/ex3
 ```
 
 

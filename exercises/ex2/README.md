@@ -5,7 +5,7 @@
 Ensure that you are in sub-directory `ex2`.
 
 ```
-cd <path-to-folder>/javaone-cloudfoundry-hol/ex2
+cd <path-to-folder>/javaone-cloudfoundry-hol/exercises/ex2
 ```
 
 We will use the Pivotal Cloud Foundry field engineering [demo.](https://github.com/Pivotal-Field-Engineering/PCF-demo) that is also [locally available](../samples/PCF-demo). For your convenience, symbolic links are provided. However, you can use the [samples directory](../samples/PCF-demo) to do the same.

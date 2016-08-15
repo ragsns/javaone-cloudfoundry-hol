@@ -5,7 +5,7 @@
 Ensure that you are in sub-directory `ex8`.
 
 ```
-cd into <path-to-folder>/javaone-cloudfoundry-hol/ex8 
+cd into <path-to-folder>/javaone-cloudfoundry-hol/exercises/ex8
 ```
 
 [Blue/Green deployments](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/blue-green.html) are intended to minimize downtime during application upgrades and enable rollback if necessary. The steps are illustrated in the following diagrams.

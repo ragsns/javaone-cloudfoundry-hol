@@ -5,7 +5,7 @@
 Ensure that you are in sub-directory `ex4`.
 
 ```
-cd <path-to-folder>/javaone-cloudfoundry-hol/ex4
+cd <path-to-folder>/javaone-cloudfoundry-hol/exercises/ex4
 ```
 
 Services are not part of the Cloud Foundry Elastic Runtime but they are an essential part of application deployment, like connecting to a MySQL database, a NoSQL database like MongoDB or Redis and so on.

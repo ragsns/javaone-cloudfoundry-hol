@@ -14,6 +14,8 @@ from [http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html](http:
 
 - A Cloud Foundry instance, either [running on your laptop](https://github.com/cloudfoundry/bosh-lite) (16GB of laptop RAM recommended) or a hosted instance
 
+- The labs from [https://github.com/ragsns/javaone-cloudfoundry-hol](https://github.com/ragsns/javaone-cloudfoundry-hol) installed **locally** either via a `git clone` command or by downloading a zip file from the remote repository.
+
 During the live HOL we will help you with a sandbox environment (the details are below). If you are trying these exercises by yourself, we want to provide you choices for deployment. We've done limited testing of the exercises on multiple instances.
 
 

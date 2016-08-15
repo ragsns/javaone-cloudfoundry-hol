@@ -8,6 +8,18 @@ Make sure you've met the following prerequisites.
 
 **Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
 
+**Prerequisite 3**: Installed the Hands-On Labs **locally**. You can either `git clone` [ttps://github.com/ragsns/javaone-cloudfoundry-hol] (ttps://github.com/ragsns/javaone-cloudfoundry-hol) or download a zip from the repository.
+
+### Ensure that you are in the right sub-directory
+
+Ensure that you are in sub-directory ex1.
+
+```
+cd <path-to-hol-folder>/javaone-cloudfoundry-hol/exercises/ex1
+```
+
+### Target the Cloud Foundry/Bluemix instance
+
 Target the Bluemix Cloud Foundry instance by substituting the URL with the one provided and use the following command. 
 
 ```

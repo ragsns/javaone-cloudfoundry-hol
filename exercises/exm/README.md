@@ -5,7 +5,7 @@
 Ensure that you are in sub-directory `exm`.
 
 ```
-cd <path-to-folder>/javaone-cloudfoundry-hol/exd
+cd <path-to-folder>/javaone-cloudfoundry-hol/exercises/exm
 ```
 
 We will look into how the application has been broken upto into finer granular services. One service (`pcfdemo-producer`) will produce the data and the other service (`pcfdemo-map`) will render the data on the map.
